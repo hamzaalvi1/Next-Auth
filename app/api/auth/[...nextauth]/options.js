@@ -12,20 +12,20 @@ export const options = {
           type: "password",
           placeholder: "password",
         },
-
-        async authorize(credentials) {
-          const user = {
-            name: "hamza alvi",
-            email: "hamza@gmail.com",
-            password: "12345",
-          };
-
-          return credentials?.name == user.name &&
-            credentials?.password == user.password
-            ? user
-            : null;
-        },
       },
+      async authorize(credentials) {
+        const user = {
+          name: "hamza alvi",
+          email: "hamza@gmail.com",
+          password: "12345",
+        };
+        console.log(credentials, "credentials");
+        return credentials?.email == user.email &&
+          credentials?.password == user.password
+          ? user
+          : null;
+      },
+
       pages: {
         signIn: "/auth/signin",
         signOut: "/auth/signout",
